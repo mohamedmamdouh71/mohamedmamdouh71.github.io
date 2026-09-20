@@ -94,6 +94,8 @@ h2{font:800 clamp(30px,4.4vw,52px)/1 var(--f-disp);letter-spacing:-.03em;margin:
 .card .tools{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font:500 12.5px var(--f-mono);color:var(--ink-3)}
 .sq{width:34px;height:34px;border-radius:9px;background:var(--c);display:grid;place-items:center}
 .sq svg{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.sq.ink{background:var(--ink)}
+.sq.ink svg{stroke:var(--surface)}
 
 /* timeline */
 .tl-scroll{overflow-x:auto;padding-bottom:6px}
@@ -220,7 +222,7 @@ footer a{color:var(--ink-3)}
       <div class="tools">Adobe Photoshop · Figma</div>
     </div>
     <div class="card" style="--c:var(--code)">
-      <span class="sq" style="--c:var(--code)"><svg viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span>
+      <span class="sq ink"><svg viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span>
       <h3>Web &amp; app development</h3>
       <p>Full-stack applications: the booking system, the dashboard or the site the campaign points at.</p>
       <div class="tools">React · Node.js · Firebase</div>
