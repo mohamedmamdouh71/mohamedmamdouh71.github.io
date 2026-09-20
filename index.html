@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohamed Mamdouh</title>
+<meta name="description" content="Video editor, graphic designer and AI &amp; computer science student. Premiere Pro, After Effects, Photoshop, Figma — and the software behind the brand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --f-disp:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",Consolas,monospace;
+  --bg:#e6e8ea; --surface:#fdfdfc; --surface-2:#f0f1f2; --line:#d0d4d9;
+  --ink:#0f1113; --ink-2:#4b515a; --ink-3:#7b828c;
+  --video:#d7331b; --design:#1b3cf5; --code:#0f1113;
+  --accent:#d7331b; --on-accent:#fff;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c0d0f; --surface:#141619; --surface-2:#1b1e22; --line:#282d33;
+    --ink:#eceef1; --ink-2:#a4abb5; --ink-3:#6e7681;
+    --video:#ff5a3c; --design:#6b88ff; --code:#eceef1;
+    --accent:#ff5a3c; --on-accent:#14150f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c0d0f; --surface:#141619; --surface-2:#1b1e22; --line:#282d33;
+  --ink:#eceef1; --ink-2:#a4abb5; --ink-3:#6e7681;
+  --video:#ff5a3c; --design:#6b88ff; --code:#eceef1;
+  --accent:#ff5a3c; --on-accent:#14150f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{max-width:100%;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:clamp(18px,4vw,44px)}
+
+/* header */
+header.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:20px;height:62px}
+.logo{font:700 17px/1 var(--f-disp);letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:9px}
+.rec{width:9px;height:9px;border-radius:50%;background:var(--video);flex:none}
+nav.links{display:flex;gap:4px;margin-inline-start:auto}
+nav.links a{text-decoration:none;color:var(--ink-2);font-size:14.5px;font-weight:500;padding:7px 11px;border-radius:7px;transition:color .2s,background-color .2s}
+nav.links a:hover{color:var(--ink);background:var(--surface-2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;font-weight:600;font-size:14.5px;white-space:nowrap;cursor:pointer;transition:transform .18s var(--ease),border-color .2s,background-color .2s}
+.btn:hover{border-color:var(--ink-3)}
+.btn:active{transform:scale(.97)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.pri:hover{filter:brightness(1.07)}
+.btn.lg{padding:14px 24px;font-size:16px}
+
+/* hero */
+.hero{padding-block:clamp(48px,8vw,104px) clamp(36px,5vw,64px)}
+.eyebrow{font:500 12.5px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+h1{font:800 clamp(52px,10.5vw,132px)/.88 var(--f-disp);letter-spacing:-.035em;margin:18px 0 0;text-wrap:balance}
+h1 span{display:block}
+h1 .two{color:var(--ink-3)}
+.role{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0}
+.tag{font:500 13px/1 var(--f-mono);letter-spacing:.02em;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);display:inline-flex;align-items:center;gap:8px}
+.tag i{width:8px;height:8px;border-radius:2px;flex:none;background:var(--c)}
+.lede{font-size:clamp(17px,2vw,21px);line-height:1.65;color:var(--ink-2);max-width:40em;margin:26px 0 0}
+.lede b{color:var(--ink);font-weight:600}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+
+/* film strip */
+.strip{display:flex;gap:6px;margin-top:46px;padding:10px;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+.strip div{height:64px;flex:1;border-radius:7px;background:var(--c);position:relative;animation:fr .6s var(--ease) both;animation-delay:calc(var(--i)*70ms)}
+.strip div::after{content:"";position:absolute;inset:auto 8px 6px 8px;height:4px;border-radius:2px;background:rgba(255,255,255,.35)}
+@keyframes fr{from{opacity:0;transform:translateY(10px) scaleY(.7)}}
+
+/* sections */
+section{padding-block:clamp(48px,7vw,86px);scroll-margin-top:62px}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 32px;flex-wrap:wrap;margin-bottom:34px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+h2{font:800 clamp(30px,4.4vw,52px)/1 var(--f-disp);letter-spacing:-.03em;margin:8px 0 0;text-wrap:balance}
+.head p{margin:0;color:var(--ink-2);max-width:32em}
+
+/* services */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .3s var(--ease),border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--c,var(--ink-3))}
+.card h3{font:700 21px/1.15 var(--f-disp);letter-spacing:-.02em;margin:6px 0 0}
+.card p{margin:0;color:var(--ink-2);font-size:15px}
+.card .tools{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font:500 12.5px var(--f-mono);color:var(--ink-3)}
+.sq{width:34px;height:34px;border-radius:9px;background:var(--c);display:grid;place-items:center}
+.sq svg{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+/* timeline */
+.tl-scroll{overflow-x:auto;padding-bottom:6px}
+.tl{min-width:760px}
+.years{display:grid;grid-template-columns:repeat(7,1fr);font:500 12.5px var(--f-mono);color:var(--ink-3);border-bottom:1px solid var(--line);padding-bottom:6px}
+.years span{padding-inline-start:4px;border-inline-start:1px solid var(--line)}
+.track{display:grid;grid-template-columns:repeat(7,1fr);align-items:center;min-height:62px;border-bottom:1px solid var(--line);position:relative}
+.track::before{content:attr(data-label);position:absolute;top:6px;inset-inline-start:0;font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.clip{background:var(--c);color:#fff;border-radius:9px;padding:9px 13px;margin:22px 4px 10px;min-width:0;box-shadow:0 1px 0 rgba(0,0,0,.08);transform-origin:left center;animation:clip .5s var(--ease) both;animation-delay:calc(var(--i)*90ms + .1s)}
+@keyframes clip{from{opacity:0;transform:scaleX(.6)}}
+.clip b{display:block;font-size:14.5px;line-height:1.25}
+.clip em{font-style:normal;font:500 11.5px var(--f-mono);opacity:.85}
+.clip.ghost{background:transparent;color:var(--ink);border:1px dashed var(--line)}
+.clip.ghost em{opacity:.7;color:var(--ink-3)}
+
+/* experience detail */
+.roles{display:grid;gap:14px;margin-top:26px}
+.role-row{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 24px}
+.role-row h3{margin:0;font:700 22px/1.2 var(--f-disp);letter-spacing:-.02em}
+.role-row .where{color:var(--ink-2);font-size:15px}
+.role-row .when{font:500 13px var(--f-mono);color:var(--ink-3);white-space:nowrap;text-align:end}
+.role-row ul{grid-column:1/-1;margin:8px 0 0;padding-inline-start:18px;color:var(--ink-2);display:grid;gap:6px}
+.role-row li::marker{color:var(--c)}
+
+/* projects */
+.proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.proj article{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.proj h3{font:700 23px/1.15 var(--f-disp);letter-spacing:-.02em;margin:0}
+.proj p{margin:0;color:var(--ink-2);font-size:15px}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px}
+.stack span{font:500 12px var(--f-mono);border:1px solid var(--line);border-radius:6px;padding:3px 8px;color:var(--ink-3)}
+.proj .links{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.note{background:var(--surface-2);border:1px dashed var(--line);border-radius:16px;padding:24px;color:var(--ink-2);display:flex;flex-direction:column;gap:12px}
+.note b{color:var(--ink)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.skills div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.skills h3{margin:0 0 10px;font:500 11.5px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.skills ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:7px}
+.skills li{font-size:14px;font-weight:500;border:1px solid var(--line);border-radius:7px;padding:5px 10px;background:var(--surface-2)}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:30px}
+.facts div{background:var(--surface);padding:20px 22px}
+.facts dt{font:500 11.5px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.facts dd{margin:6px 0 0;font:700 19px/1.25 var(--f-disp);letter-spacing:-.01em}
+
+/* contact */
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(28px,4vw,52px);display:grid;gap:18px}
+.contact h2{margin:0}
+.contact p{margin:0;color:var(--ink-2);max-width:34em;font-size:17px}
+.ways{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+footer{border-top:1px solid var(--line);margin-top:clamp(40px,6vw,72px)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-block:24px 40px;color:var(--ink-3);font-size:13.5px}
+footer a{color:var(--ink-3)}
+
+@media (max-width:760px){
+  nav.links{display:none}
+  .role-row{grid-template-columns:minmax(0,1fr)}
+  .role-row .when{text-align:start}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="bar"><div class="wrap">
+  <a class="logo" href="#top"><span class="rec"></span>Mohamed Mamdouh</a>
+  <nav class="links">
+    <a href="#work">What I do</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+  </nav>
+  <a class="btn pri" href="mailto:mmamdouh7@gmail.com">Get in touch</a>
+</div></header>
+
+<main>
+<section class="hero wrap" id="top">
+  <div class="eyebrow">Egypt · Available for freelance</div>
+  <h1><span>Mohamed</span><span class="two">Mamdouh</span></h1>
+  <div class="role">
+    <span class="tag" style="--c:var(--video)"><i></i>Video editing</span>
+    <span class="tag" style="--c:var(--design)"><i></i>Graphic design</span>
+    <span class="tag" style="--c:var(--code)"><i></i>Software</span>
+  </div>
+  <p class="lede">I cut video and design brand work — and I build the software behind it. <b>Six years</b> editing and designing, four of them freelance for clients across a range of industries, now a marketing specialist and digital creator at <b>Glow Media</b> while studying AI and computer science.</p>
+  <div class="cta">
+    <a class="btn pri lg" href="mailto:mmamdouh7@gmail.com">mmamdouh7@gmail.com</a>
+    <a class="btn lg" href="https://wa.me/201025366209" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn lg" href="https://github.com/mohamedmamdouh71" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div class="strip" aria-hidden="true">
+    <div style="--c:var(--video);--i:0"></div><div style="--c:var(--design);--i:1"></div><div style="--c:var(--video);--i:2"></div>
+    <div style="--c:var(--ink-3);--i:3"></div><div style="--c:var(--design);--i:4"></div><div style="--c:var(--video);--i:5"></div>
+    <div style="--c:var(--design);--i:6"></div><div style="--c:var(--ink-3);--i:7"></div>
+  </div>
+</section>
+
+<section class="wrap" id="work">
+  <div class="head"><div><div class="eyebrow">What I do</div><h2>Four things, one workflow</h2></div>
+    <p>From the first cut to the logo on the thumbnail to the app it all runs on.</p></div>
+  <div class="cards">
+    <div class="card" style="--c:var(--video)">
+      <span class="sq" style="--c:var(--video)"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M9 5v14M15 5v14M4 12h16"/></svg></span>
+      <h3>Video editing</h3>
+      <p>Cutting footage into something people finish watching: social edits, ads, brand films and long-form.</p>
+      <div class="tools">Adobe Premiere Pro</div>
+    </div>
+    <div class="card" style="--c:var(--video)">
+      <span class="sq" style="--c:var(--video)"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="8.5"/></svg></span>
+      <h3>Motion graphics</h3>
+      <p>Titles, lower thirds, animated logos and effects that hold a brand together across a campaign.</p>
+      <div class="tools">Adobe After Effects</div>
+    </div>
+    <div class="card" style="--c:var(--design)">
+      <span class="sq" style="--c:var(--design)"><svg viewBox="0 0 24 24"><path d="M4 20l7.5-14 7.5 14z"/><path d="M8 20h8"/></svg></span>
+      <h3>Graphic design</h3>
+      <p>Logos, digital assets and social media designs — built as a set, so every post looks like the same brand.</p>
+      <div class="tools">Adobe Photoshop · Figma</div>
+    </div>
+    <div class="card" style="--c:var(--code)">
+      <span class="sq" style="--c:var(--code)"><svg viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span>
+      <h3>Web &amp; app development</h3>
+      <p>Full-stack applications: the booking system, the dashboard or the site the campaign points at.</p>
+      <div class="tools">React · Node.js · Firebase</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="experience">
+  <div class="head"><div><div class="eyebrow">Experience</div><h2>Six years on the timeline</h2></div>
+    <p>Freelance editing and design since 2020, in-house marketing since 2025, and a computer science degree running alongside.</p></div>
+
+  <div class="tl-scroll"><div class="tl">
+    <div class="years"><span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span></div>
+    <div class="track" data-label="Creative">
+      <div class="clip" style="--c:var(--video);--i:0;grid-column:1 / 6"><b>Freelance video editor &amp; graphic designer</b><em>2020 — 2024 · Self-employed</em></div>
+    </div>
+    <div class="track" data-label="In-house">
+      <div class="clip" style="--c:var(--design);--i:1;grid-column:6 / 8"><b>Marketing specialist &amp; digital creator</b><em>Jan 2025 — present · Glow Media</em></div>
+    </div>
+    <div class="track" data-label="Study">
+      <div class="clip ghost" style="--i:2;grid-column:6 / 8"><b>BSc Artificial Intelligence &amp; Computer Science</b><em>Fayoum National University · graduating 2029</em></div>
+    </div>
+  </div></div>
+
+  <div class="roles">
+    <article class="role-row" style="--c:var(--design)">
+      <div><h3>Marketing specialist &amp; digital creator</h3><div class="where">Glow Media</div></div>
+      <div class="when">Jan 2025 — present</div>
+      <ul>
+        <li>Develop digital marketing strategies and create the visual content for brand campaigns.</li>
+        <li>Work with the team to deliver marketing materials and social media content on schedule.</li>
+      </ul>
+    </article>
+    <article class="role-row" style="--c:var(--video)">
+      <div><h3>Freelance video editor &amp; graphic designer</h3><div class="where">Self-employed</div></div>
+      <div class="when">2020 — 2024</div>
+      <ul>
+        <li>Produced video content end to end: editing, motion graphics and effects.</li>
+        <li>Designed graphics, logos and digital assets for clients across several industries.</li>
+        <li>Kept clients coming back, and delivered on deadline.</li>
+      </ul>
+    </article>
+  </div>
+
+  <dl class="facts">
+    <div><dt>Editing &amp; design since</dt><dd>2020</dd></div>
+    <div><dt>Freelance</dt><dd>4 years, self-employed</dd></div>
+    <div><dt>Currently</dt><dd>Glow Media</dd></div>
+    <div><dt>Languages</dt><dd>Arabic (native) · English (fluent)</dd></div>
+  </dl>
+</section>
+
+<section class="wrap" id="projects">
+  <div class="head"><div><div class="eyebrow">Projects</div><h2>Built, not just designed</h2></div>
+    <p>Software I wrote myself, where the design and the code are the same job.</p></div>
+  <div class="proj">
+    <article>
+      <h3>Fitness centre management system</h3>
+      <p>A gym website and front-desk system in one file: members, subscriptions and renewals, daily check-in, membership plans, class timetable, trainers and payments. Arabic-first with full right-to-left layout and an English toggle.</p>
+      <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Arabic RTL</span></div>
+      <div class="links"><a class="btn" href="https://mohamedmamdouh71.github.io/fitness-center/" target="_blank" rel="noopener">Live site</a><a class="btn" href="https://github.com/mohamedmamdouh71/fitness-center" target="_blank" rel="noopener">Code</a></div>
+    </article>
+    <article>
+      <h3>Restaurant management application</h3>
+      <p>A full-stack application for restaurant operations: order management, inventory tracking and customer relationships.</p>
+      <div class="stack"><span>React</span><span>Node.js</span><span>Firebase</span><span>REST APIs</span></div>
+    </article>
+    <div class="note">
+      <b>Showreel and design samples</b>
+      <p style="margin:0">My edits and design work aren't posted here yet. Email me and I'll send the reel and a selection of recent pieces — video, motion graphics, logos and social campaigns.</p>
+      <a class="btn pri" href="mailto:mmamdouh7@gmail.com?subject=Showreel%20request">Ask for the reel</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="skills">
+  <div class="head"><div><div class="eyebrow">Skills</div><h2>Tools I work in</h2></div></div>
+  <div class="skills">
+    <div><h3>Video &amp; motion</h3><ul><li>Adobe Premiere Pro</li><li>Adobe After Effects</li></ul></div>
+    <div><h3>Design</h3><ul><li>Adobe Photoshop</li><li>Figma</li><li>UI/UX principles</li></ul></div>
+    <div><h3>Programming</h3><ul><li>C++</li><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul></div>
+    <div><h3>Web &amp; mobile</h3><ul><li>React</li><li>Node.js</li><li>Firebase</li><li>REST APIs</li></ul></div>
+    <div><h3>Other</h3><ul><li>Git</li><li>Database design</li></ul></div>
+    <div><h3>Education</h3><ul><li>Fayoum National University</li><li>BSc AI &amp; Computer Science</li><li>Graduating 2029</li></ul></div>
+  </div>
+</section>
+
+<section class="wrap" id="contact">
+  <div class="contact">
+    <div class="eyebrow">Contact</div>
+    <h2>Got something to cut, design or build?</h2>
+    <p>Send me the brief and the deadline. I'll tell you honestly whether I can do it well in the time you have.</p>
+    <div class="ways">
+      <a class="btn pri lg" href="mailto:mmamdouh7@gmail.com">mmamdouh7@gmail.com</a>
+      <a class="btn lg" href="https://wa.me/201025366209" target="_blank" rel="noopener">WhatsApp · +20 102 536 6209</a>
+      <a class="btn lg" href="https://github.com/mohamedmamdouh71" target="_blank" rel="noopener">github.com/mohamedmamdouh71</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <span>© <span id="y">2026</span> Mohamed Mamdouh</span>
+  <span>Egypt · Arabic &amp; English</span>
+</div></footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
